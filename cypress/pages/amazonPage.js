@@ -1,35 +1,29 @@
 class amazonPage {
 
-    elements = {
+    get = {
         searchBoxInput: () => cy.get("#twotabsearchtextbox"),
         searchButton: () => cy.get("#nav-search-submit-button"),
         thirdResult: () => cy.get("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/div[4]/div[1]/div[1]"),
         addToCartButton: () => cy.get("#add-to-cart-button"),
-        addedMessageText: () => cy.get("text[data-test='añadido']")
+        addedMessageText: () => cy.get("text[data-test='añadido']"),
+        Items: () => cy.get('[data-component-type="s-search-result"] h2 a'),
     }
 
-    enterSearchCriteria(product){
-        this.elements.searchBoxInput().type(product);
+    enterSearchCriteria(text){
+        this.get.searchBoxInput().type(text);
     }
 
     clickSearchBtn(){
-        this.elements.searchButton().click();
-    }
-
-    goToPage(pageNumber){
-
+        this.get.searchButton().click();
     }
 
     pick3rdItem(){
-        this.elements.thirdResult().click();
+        this.get.Items().third().click();
     }
-
+    
     addToCart(){
-        this.elements.addToCartButton().click();
+        this.get.addToCartButton().click();
     }
-
-
-
 
 }
 

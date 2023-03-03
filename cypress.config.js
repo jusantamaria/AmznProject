@@ -20,8 +20,8 @@ module.exports = defineConfig({
       return config;
     },
 
-    specPattern: "cypress/e2e/features/amazon.feature",
-    baseUrl: "https://www.amazon.es",
+    specPattern: "cypress/e2e/features/*.feature",
+    baseUrl: "https://www.amazon.com",
     chromeWebSecurity: false,
   },
 });
