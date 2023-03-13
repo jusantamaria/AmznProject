@@ -7,6 +7,7 @@ class amazonPage {
         addToCartButton: () => cy.get("#add-to-cart-button"),
         addedMessageText: () => cy.get("text[data-test='añadido']"),
         Items: () => cy.get('[data-component-type="s-search-result"] h2 a'),
+        page2Button: () => cy.xpath('1'),
     }
 
     enterSearchCriteria(text){
@@ -15,6 +16,9 @@ class amazonPage {
 
     clickSearchBtn(){
         this.get.searchButton().click();
+    }
+    goToPage2(){
+        this.get.page2Button().click();      
     }
 
     pick3rdItem(){
