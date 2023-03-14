@@ -3,11 +3,12 @@ class amazonPage {
     get = {
         searchBoxInput: () => cy.get("#twotabsearchtextbox"),
         searchButton: () => cy.get("#nav-search-submit-button"),
-        thirdResult: () => cy.get("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/div[4]/div[1]/div[1]"),
+        thirdResult: () => cy.get(".s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_51"),
         addToCartButton: () => cy.get("#add-to-cart-button"),
         addedMessageText: () => cy.get("text[data-test='añadido']"),
-        Items: () => cy.get('[data-component-type="s-search-result"] h2 a'),
-        page2Button: () => cy.xpath('1'),
+        Items: () => cy.get('[data-asin="B08B3FNXJ9"] > .sg-col-inner > .s-widget-container > [data-component-type="s-impression-logger"] > .s-featured-result-item > .s-card-container > .a-spacing-base > .s-product-image-container > .rush-component > .a-link-normal > .a-section > .s-image'),
+        NextPageButton: () => cy.get('.s-pagination-next'),
+        
     }
 
     enterSearchCriteria(text){
@@ -18,11 +19,11 @@ class amazonPage {
         this.get.searchButton().click();
     }
     goToPage2(){
-        this.get.page2Button().click();      
+        this.get.NextPageButton().click();      
     }
 
     pick3rdItem(){
-        this.get.Items().third().click();
+        this.get.thirdResult().click();
     }
     
     addToCart(){
